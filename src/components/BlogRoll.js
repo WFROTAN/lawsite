@@ -7,11 +7,14 @@ class BlogRoll extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
+    const url = typeof window !== 'undefined' ? window.location.href : '';
+    const allPosts = url == "http://localhost:8000/blog" ? posts : posts.slice(0,2)
+  
 
     return (
       <div className="columns is-multiline">
-        {posts &&
-          posts.map(({ node: post }) => (
+        {allPosts &&
+          allPosts.map(({ node: post }) => (
             <div className="is-parent column is-6" key={post.id}>
               <article
                 className={`blog-list-item tile is-child box notification ${

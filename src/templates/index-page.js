@@ -6,6 +6,18 @@ import Layout from '../components/Layout'
 import Features from '../components/Features'
 import BlogRoll from '../components/BlogRoll'
 
+// Images
+import Liberty from '../img/law4.jpg'
+import Backimg from '../img/law1.jpg'
+import DocumentSvg from '../img/assets/document-text-outline.svg'
+import WalletSvg from '../img/assets/wallet-outline.svg'
+import GlobeSvg from '../img/assets/globe-outline.svg'
+import BuildingSvg from '../img/assets/business-outline.svg'
+import HouseSvg from '../img/assets/home-outline.svg'
+import CashSvg from '../img/assets/cash-outline.svg'
+
+import "./scss/index-page.scss"
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -19,11 +31,10 @@ export const IndexPageTemplate = ({
     <div
       className="full-width-image margin-top-0"
       style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
+        backgroundImage: `url(${Backimg})`,
         backgroundPosition: `top left`,
         backgroundAttachment: `fixed`,
+        height: `60vh`,
       }}
     >
       <div
@@ -64,18 +75,23 @@ export const IndexPageTemplate = ({
         </h3>
       </div>
     </div>
-    <section className="section section--gradient">
+    <section className="section section--gradient main-section">
       <div className="container">
         <div className="section">
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+              <div className="content breif-description">
+                  <div className="breif-image">
+                    <img src={Liberty}/>
                   </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                  <div className="breif-items">
+                    <div className="tile">
+                      <h1 className="title">{mainpitch.title}</h1>
+                    </div>
+                    <div className="tile">
+                      <h3 className="subtitle">{mainpitch.description}</h3>
+                    </div>
                   </div>
                 </div>
                 <div className="columns">
@@ -86,19 +102,55 @@ export const IndexPageTemplate = ({
                     <p>{description}</p>
                   </div>
                 </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
+                <div className="practice">
+                  <a href="/" className="practice__item">
+                    <DocumentSvg style={{ height: '40px' }} />
+                    <div className="item-title">
+                      Covid-19 Tenants
+                    </div>
+                    <span className="title-subtext">Learn More</span>
+                  </a>
+                  <a href="/" className="practice__item">
+                    <WalletSvg style={{ height: '40px' }} /> 
+                    <div className="item-title">
+                      Qualified<br/>Opportunity Zones
+                    </div>
+                    <span className="title-subtext">Learn More</span>
+                  </a>
+                  <a href="/" className="practice__item">
+                    <BuildingSvg style={{ height: '40px' }} />
+                    <div className="item-title">
+                      Commercial<br/>Acquisitions
+                    </div>
+                    <span className="title-subtext">Learn More</span>
+                  </a>
+                  <a href="/" className="practice__item">
+                    <HouseSvg style={{ height: '40px' }} />
+                    <div className="item-title">
+                      Residential<br/>Transcations
+                    </div>
+                    <span className="title-subtext">Learn More</span>
+                  </a>
+                  <a href="/" className="practice__item">
+                    <GlobeSvg style={{ height: '40px' }} />
+                    <div className="item-title">
+                      Foreign Investments
+                    </div>
+                    <span className="title-subtext">Learn More</span>
+                  </a>
+                  <a href="/" className="practice__item">
+                    <CashSvg style={{ height: '40px' }} />
+                    <div className="item-title">
+                      Financing
+                    </div>
+                    <span className="title-subtext">Learn More</span>
+                  </a>
                 </div>
                 <div className="column is-12">
                   <h3 className="has-text-weight-semibold is-size-2">
                     Latest stories
                   </h3>
-                  <BlogRoll />
+                  <BlogRoll/>
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
                       Read more
@@ -110,6 +162,42 @@ export const IndexPageTemplate = ({
           </div>
         </div>
       </div>
+    </section>
+    <section className="reviews">
+      <div className="reviews__title"><h2>Attorneys Experience</h2></div>
+      <div className="reviews__description"><p>Represented a foreign private fund in connection with the corporate and tax structuring of their investment in commercial real estate project in NYC by utilizing beneficial tax treaty provisions, and combination of debt and equity</p></div>
+    </section>
+    <section className="form">
+        <div className="form-content">
+          <h3>Request Consultation</h3>
+          <form>
+            <div className="form-row">
+              <label>
+                First Name:
+                <input type="text" name="name" />
+              </label>
+              <label>
+                Last Name:
+                <input type="text" name="name" />
+              </label>
+            </div>
+            <div className="form-row">
+              <label>
+                Email:
+                <input type="text" name="name" />
+              </label>
+              <label>
+                Phone Number:
+                <input type="text" name="name" />
+              </label>
+            </div>
+            <div className="userText">
+              <h4>Case details:</h4>
+              <textarea rows="10"></textarea>
+            </div>
+            <input type="submit" value="Send Request" />
+          </form>
+        </div>
     </section>
   </div>
 )
@@ -159,13 +247,6 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         title
-        image {
-          childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
         heading
         subheading
         mainpitch {
@@ -191,3 +272,4 @@ export const pageQuery = graphql`
     }
   }
 `
+/*<Features gridItems={intro.blurbs} />*/
