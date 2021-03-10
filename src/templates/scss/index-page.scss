@@ -12,7 +12,7 @@
         
         img {
             max-height: 300px;
-            border: 3px solid rgb(255, 68, 0);
+            border: 5px solid rgb(255, 68, 0);
         }
     }
 
@@ -76,6 +76,10 @@
     &__description {
         width: 500px;
     }
+}
+
+.sliderText {
+    font-size: 40px !important;
 }
 
 .main-section {

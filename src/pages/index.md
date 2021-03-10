@@ -1,21 +1,15 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: “Effective advocacy matters. Litigate with confidence.”
 image: /img/law1.jpg
 heading: Our Real Estate Practice
-subheading: Support sustainable farming while enjoying a cup
+subheading: ""
 mainpitch:
   title: Why Kaldi
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
+   At Kaldi, we provide a range of business and asset-related legal services upholding to the highest standards of the biggest Toronto law firms, while offering competitive rates combined with flexibility and attention to client of a legal boutique. 
 description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+   Kaldi Law Firm offers practical and effective legal solutions to companies and individuals facing ordinary and extraordinary legal challenges related to growing their businesses or protecting their assets. Our attorneys work with modern diversified asset portfolios, including traditional assets (such as money, securities and real estate), as well as digital assets (cryptocurrencies, digital securities) and intellectual property.
 intro:
   blurbs:
     - image: /img/coffee.png
